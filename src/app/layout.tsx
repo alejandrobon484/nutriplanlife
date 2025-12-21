@@ -2,7 +2,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import CookieBanner from '@/components/CookieBanner'
-import TawkToChat from '@/components/TawkToChat'
 
 // ═══════════════════════════════════════════════════════════
 // METADATA SEO OPTIMIZADA
@@ -123,7 +122,6 @@ export default function RootLayout({
       <body>
         {children}
         <CookieBanner />
-        <TawkToChat />
       </body>
     </html>
   )
