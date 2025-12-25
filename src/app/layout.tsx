@@ -7,35 +7,37 @@ import CookieBanner from '@/components/CookieBanner'
 // METADATA SEO OPTIMIZADA
 // ═══════════════════════════════════════════════════════════
 export const metadata: Metadata = {
-  // Título que aparece en la pestaña del navegador y en Google
+  // Título que aparece en Google y en la pestaña del navegador
   title: {
-    default: 'NutriPlanLife - Planificador de Comidas Personalizado y Estacional',
-    template: '%s | NutriPlanLife' // Para páginas individuales
+    default: 'NutriPlanLife - Planificador de Comidas Estacionales Personalizado',
+    template: '%s | NutriPlanLife'
   },
   
-  // Descripción que aparece en Google (max 160 caracteres)
-  description: 'Crea planes de nutrición personalizados con la calculadora Harris-Benedict. Menús semanales con productos de temporada, listas de compra automáticas y recetas saludables.',
+  // Descripción para resultados de búsqueda (máximo 160 caracteres)
+  description: 'Tu planificador nutricional personalizado con menús estacionales. Crea tu perfil, obtén planes semanales adaptados y genera listas de compra automáticas con productos de temporada.',
   
-  // Palabras clave
+  // Palabras clave relevantes
   keywords: [
-    'calculadora de calorías',
     'planificador de comidas',
-    'menú semanal saludable',
-    'dieta personalizada',
+    'menú semanal',
+    'nutrición personalizada',
     'productos de temporada',
     'lista de compra saludable',
-    'Harris-Benedict',
-    'nutrición personalizada',
     'plan nutricional',
-    'recetas estacionales'
+    'recetas estacionales',
+    'menú primavera',
+    'menú verano',
+    'menú otoño',
+    'menú invierno',
+    'planificación nutricional'
   ],
   
-  // Autor y creador
+  // Información del autor
   authors: [{ name: 'NutriPlanLife', url: 'https://nutriplanlife.com' }],
   creator: 'Alejandro Bon',
   publisher: 'NutriPlanLife',
   
-  // Configuración de robots (indexación)
+  // Configuración de indexación
   robots: {
     index: true,
     follow: true,
@@ -48,33 +50,33 @@ export const metadata: Metadata = {
     },
   },
   
-  // Open Graph (para cuando compartes en Facebook, WhatsApp, LinkedIn)
+  // Open Graph - Para compartir en redes sociales
   openGraph: {
     type: 'website',
     locale: 'es_ES',
     url: 'https://nutriplanlife.com',
     siteName: 'NutriPlanLife',
-    title: 'NutriPlanLife - Planificador de Comidas Personalizado',
-    description: 'Crea tu plan nutricional personalizado con productos de temporada. Calculadora de calorías, menús semanales y listas de compra automáticas.',
+    title: 'NutriPlanLife - Tu Planificador Nutricional Personalizado',
+    description: 'Crea tu perfil nutricional, obtén menús semanales con productos de temporada y genera listas de compra automáticas.',
     images: [
       {
         url: 'https://nutriplanlife.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'NutriPlanLife - Planificación Nutricional Personalizada',
+        alt: 'NutriPlanLife - Planificador de Comidas Estacionales',
       },
     ],
   },
   
-  // Twitter Cards (para compartir en Twitter/X)
+  // Twitter Cards
   twitter: {
     card: 'summary_large_image',
-    title: 'NutriPlanLife - Planificador de Comidas Personalizado',
-    description: 'Crea planes de nutrición con productos de temporada. Calculadora de calorías y menús personalizados.',
-    images: ['https://nutriplanlife.com/twitter-image.jpg'],
+    title: 'NutriPlanLife - Planificador de Comidas Estacionales',
+    description: 'Tu planificador nutricional con menús de temporada',
+    images: ['https://nutriplanlife.com/og-image.jpg'],
   },
   
-  // Idioma alternativo
+  // URL canónica
   alternates: {
     canonical: 'https://nutriplanlife.com',
     languages: {
@@ -82,7 +84,7 @@ export const metadata: Metadata = {
     },
   },
   
-  // Configuración adicional
+  // Categoría
   category: 'Health & Nutrition',
 }
 
@@ -94,7 +96,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        {/* Schema.org para Google - Datos estructurados */}
+        {/* Schema.org - Datos estructurados para Google */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -102,10 +104,10 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'WebApplication',
               name: 'NutriPlanLife',
-              description: 'Planificador de comidas personalizado con productos de temporada',
+              description: 'Planificador de comidas personalizado con productos de temporada y menús estacionales',
               url: 'https://nutriplanlife.com',
               applicationCategory: 'HealthApplication',
-              operatingSystem: 'Web',
+              operatingSystem: 'Web Browser',
               offers: {
                 '@type': 'Offer',
                 price: '0',
@@ -115,6 +117,13 @@ export default function RootLayout({
                 '@type': 'Person',
                 name: 'Alejandro Bon',
               },
+              featureList: [
+                'Perfil nutricional personalizado',
+                'Menús semanales estacionales',
+                'Lista de compra automática',
+                'Recetas de primavera, verano, otoño e invierno',
+                'Planificación por días (desayuno, comida, cena)'
+              ],
             }),
           }}
         />
@@ -122,6 +131,7 @@ export default function RootLayout({
       <body>
         {children}
         <CookieBanner />
+
       </body>
     </html>
   )
